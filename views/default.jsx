@@ -1,16 +1,17 @@
 const React = require('react')
 
-function Def(html){
-    return(
-        <html>
-            <head>
-                <title>Title</title>
-            </head>
+function Default(html) {
+    return (
+    <html>
+        <head>
+            <title>Title</title>
             <body>
                 {html.children}
             </body>
-        </html>
+        </head>
+    </html>
     )
+
 }
 
-module.exports = Def
+module.exports = Default 
