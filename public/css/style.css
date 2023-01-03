@@ -1,3 +1,14 @@
+body {
+    background-color: lightcoral;
+    text-align: center;
+}
+
+main {
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: white;
+}
+
 h1 {
     text-align: center;
     color: cornflowerblue;
@@ -28,13 +39,7 @@ nav a:hover {
     text-decoration: none;
 }
 
-body {
-    background-color: lightcoral;
-    text-align: center;
-}
-
-main {
-    margin-right: 20px;
-    margin-left: 20px;
-    background-color: white;
+img {
+    width: 50%;
+    height: 50%;
 }

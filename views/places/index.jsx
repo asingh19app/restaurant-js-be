@@ -5,10 +5,12 @@ const Default = require('../default')
 
 //Go back to your view, views/places/index.jsx. In order to accept the data we just passed in, we need to make a parameter in the index function. Let's call that parameter 'data'. The places array will be accessed as 'data.places' within the function.
 function index (data) {
-let placesFormatted = data.places.map((place) => {
+let placesFormatted = data.places.map((place, index) => {
     return(
         <div className='col-sm'>
-            <h2>{place.name}</h2>
+            <h2>
+                <a href={`/places/${index}`}> {place.name}</a>
+            </h2>
             <p >{place.cuisines}</p>
             <img src={place.image} alt={place.name} height = {500} width = {500} />
             <p>
