@@ -17,9 +17,22 @@ function Show(data) {
                     <p>Speciality Dish: {data.place.cuisines}</p>
                 </div>
 
-                <div>
-                   <img src= {data.place.image}  alt={data.place.cuisines}/>
-                </div>
+                
+                   <img src= {data.place.image}  alt={data.place.cuisines} height = {500} width = {500}/>
+                
+                 
+                    <div className='buttons' >
+              <a href={`/places/${data.id}/edit`} className='btn btn-warning'>
+                    Edit
+                </a>
+
+             <form method ="POST" action = {`/places/${data.id}?_method=DELETE`} >
+                <button type='submit' className='btn btn-danger'>DELETE</button>
+             </form>
+             
+             </div>
+                
+
               
             </main>
         </Default>

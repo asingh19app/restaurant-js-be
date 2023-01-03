@@ -1,5 +1,7 @@
+//MODULES AND GLOBALS
 const React = require('react')
 const Default = require('../default')
+
 //need double period in order to access default bc this jsx is inside of a folder in side of the parent folder which default.jsx is also located
 
 
