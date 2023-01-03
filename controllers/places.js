@@ -33,4 +33,8 @@ router.get('/', (req,res)=> {
  //The one additional change here is that since we have a folder inside(places) of our views folder, we do need to reference that folder. Therefore, your index route inside of places.js should look like this:
 })
 
+//TO SET FOR IMAGE
+//let x = Bread[req.paramas.arrayIndex].image
+//res.send(~<img src=x></img>
+
 module.exports = router
