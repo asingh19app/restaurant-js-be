@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
+
 //static code here
 router.get('/', (req,res)=> {
     let places = [
@@ -31,13 +32,16 @@ router.get('/', (req,res)=> {
     res.render('places/index', {places})
     //Pass the places array into the render method as shown below. This will allow us to use that array inside of our view. We're one step closer to showing this data to our user!
  //The one additional change here is that since we have a folder inside(places) of our views folder, we do need to reference that folder. Therefore, your index route inside of places.js should look like this:
-
-
 })
 
+router.get('/new', (req,res)=> {
+    res.render('places/new')
+})
+  
+
+
+module.exports = router
 //TO SET FOR IMAGE
 
 
 //res.send(~<img src=x></img>
-
-module.exports = router
