@@ -34,8 +34,14 @@ router.get('/', (req,res)=> {
  //The one additional change here is that since we have a folder inside(places) of our views folder, we do need to reference that folder. Therefore, your index route inside of places.js should look like this:
 })
 
+//NEW
 router.get('/new', (req,res)=> {
     res.render('places/new')
+})
+
+//CREATE
+router.post('/', (req,res) => {
+    res.send('POST/places')
 })
   
 
