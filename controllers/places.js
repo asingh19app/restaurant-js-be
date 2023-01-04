@@ -14,21 +14,7 @@ router.get('/new', (req,res)=> {
     res.render('places/new')
 })
 
-  //EDIT 
-  router.get('/:id/edit', (req,res)=> {
-    let id = Number(req.params.id)
-    if(isNaN(id)) {
-      res.render('error404')
-    }
-    else if(!places[id]) {
-      res.render('error404')
-    }
-    else{
-      res.render('places/edit', {place: places[id], id})
-  }
-    
-  })
-  
+
 //SHOW 
 router.get('/:id', (req,res)=> {
   let id = Number(req.params.id)
@@ -43,6 +29,7 @@ router.get('/:id', (req,res)=> {
 }
   
 })
+
 
 //CREATE
 router.post('/', (req, res) => {
@@ -61,7 +48,8 @@ router.post('/', (req, res) => {
    res.redirect('/places')
  })
 
- 
+
+
 
 //DELETE
 router.delete('/:id', (req,res)=> {
@@ -79,13 +67,5 @@ router.delete('/:id', (req,res)=> {
   
 })
 
-
-
-
-
-
 module.exports = router
-//TO SET FOR IMAGE
 
-
-//res.send(~<img src=x></img>
