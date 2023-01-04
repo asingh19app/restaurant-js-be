@@ -14,21 +14,19 @@ router.get('/new', (req,res)=> {
     res.render('places/new')
 })
 
-//CREATE
-router.post('/', (req, res) => {
-   // console.log(req.body)
-    if (!req.body.pic) {
-      // Default image if one is not provided
-      req.body.pic = 'http://placekitten.com/400/400'
+  //EDIT 
+  router.get('/:id/edit', (req,res)=> {
+    let id = Number(req.params.id)
+    if(isNaN(id)) {
+      res.render('error404')
     }
-    if (!req.body.city) {
-      req.body.city = 'Anytown'
+    else if(!places[id]) {
+      res.render('error404')
     }
-    if (!req.body.state) {
-      req.body.state = 'USA'
-    }
-    places.push(req.body)
-    res.redirect('/places')
+    else{
+      res.render('places/edit', {place: places[id], id})
+  }
+    
   })
   
 //SHOW 
@@ -45,6 +43,25 @@ router.get('/:id', (req,res)=> {
 }
   
 })
+
+//CREATE
+router.post('/', (req, res) => {
+  // console.log(req.body)
+   if (!req.body.pic) {
+     // Default image if one is not provided
+     req.body.pic = 'http://placekitten.com/400/400'
+   }
+   if (!req.body.city) {
+     req.body.city = 'Anytown'
+   }
+   if (!req.body.state) {
+     req.body.state = 'USA'
+   }
+   places.push(req.body)
+   res.redirect('/places')
+ })
+
+ 
 
 //DELETE
 router.delete('/:id', (req,res)=> {
