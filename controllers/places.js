@@ -65,7 +65,28 @@ router.post('/', (req, res) => {
 
 //UPDATE
 router.put('/:id', (req,res) => {
-  res.send('stub')
+  let id  = Number(req.params.id)
+  if(isNaN(id)) {
+    res.render('error404')
+  }
+  else if(!places[id]) {
+    res.render('error404')
+  }
+  else{
+    if(!req.body.pic) {
+      req.body.pic = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.wikihow.com%2FGet-the-URL-for-Pictures&psig=AOvVaw2_nsKGRYLV14woN4MSTPwH&ust=1672855159405000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLiohZ79q_wCFQAAAAAdAAAAABAE'
+    }
+    if(!req.body.city) {
+      req.body.city = 'Anytown'
+    }
+    if(!req.body.status) {
+      req.body.state = 'USA'
+    }
+
+    //save new dtaa into the places[id]
+    places[id] = req.body
+    res.redirect(`/places/${id}`)
+  }
 })
 
 

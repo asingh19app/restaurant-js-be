@@ -23,7 +23,7 @@ function edit (data) {
                      <label htmlFor="pic">Place Picture</label>
                      <input
                      className="form-control"
-                      type="text" 
+                      type="url" 
                       name ="pic"
                       id="pic" 
                       defaultValue = {data.place.image}
