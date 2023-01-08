@@ -1,13 +1,16 @@
-const express = require('express')
 const router = express.Router()
-const places = require('../models/places.js')
+const db = require('../models')
 
-
-//static code here
+//INDEX 
 router.get('/', (req,res)=> {
-    res.render('places/index', {places})
+   res.send('GET/ places stub')
 
 })
+
+//CREATE
+router.post('/', (req, res) => {
+  res.send('POST/ places stub')
+   })
 
 //NEW
 router.get('/new', (req,res)=> {
@@ -15,95 +18,37 @@ router.get('/new', (req,res)=> {
 })
 
 
-//EDIT
-router.get('/:id/edit', (req, res) => {
-  let id = Number(req.params.id)
-  if (isNaN(id)) {
-      res.render('error404')
-  }
-  else if (!places[id]) {
-      res.render('error404')
-  }
-  else {
-    res.render('places/edit', { place: places[id], id })
-  }
-})
+//UPDATE
+router.put('/:id', (req,res) => {
+  res.send('PUT/places/:id stub')
+  })
 
 //SHOW 
 router.get('/:id', (req,res)=> {
-  let id = Number(req.params.id)
-  if(isNaN(id)) {
-    res.render('error404')
-  }
-  else if(!places[id]) {
-    res.render('error404')
-  }
-  else{
-    res.render('places/show', {place: places[id], id})
-}
-  
+res.send('GET/places/:id stub')
 })
 
-//CREATE
-router.post('/', (req, res) => {
-  // console.log(req.body)
-   if (!req.body.pic) {
-     // Default image if one is not provided
-     req.body.pic = 'http://placekitten.com/400/400'
-   }
-   if (!req.body.city) {
-     req.body.city = 'Anytown'
-   }
-   if (!req.body.state) {
-     req.body.state = 'USA'
-   }
-   places.push(req.body)
-   res.redirect('/places')
- })
+//DELETE 
+router.delete('/:id', (req,res) => {
+  res.send('DELETE /places/:id stub')
+})
+
+//EDIT
+router.get('/:id/edit', (req, res) => {
+  res.send('GET edit form stub')
+  })
 
 
 
-//UPDATE
-router.put('/:id', (req,res) => {
-  let id  = Number(req.params.id)
-  if(isNaN(id)) {
-    res.render('error404')
-  }
-  else if(!places[id]) {
-    res.render('error404')
-  }
-  else{
-    if(!req.body.pic) {
-      req.body.pic = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.wikihow.com%2FGet-the-URL-for-Pictures&psig=AOvVaw2_nsKGRYLV14woN4MSTPwH&ust=1672855159405000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLiohZ79q_wCFQAAAAAdAAAAABAE'
-    }
-    if(!req.body.city) {
-      req.body.city = 'Anytown'
-    }
-    if(!req.body.status) {
-      req.body.state = 'USA'
-    }
-
-    //save new dtaa into the places[id]
-    places[id] = req.body
-    res.redirect(`/places/${id}`)
-  }
+//PUT
+router.post('/:id/rant', (req,res) => {
+  res.send('GET /places/:id/rant/:rantId stub')
 })
 
 
 //DELETE
-router.delete('/:id', (req,res)=> {
-  let id = Number(req.params.id)
-  if(isNaN(id)) {
-    res.render('error404')
-  }
-  else if(!places[id]) {
-    res.render('error404')
-  }
-  else{
-    places.splice(id,1)
-    res.redirect('/places')
-}
-  
+router.delete('/:id/rant/:rantId', (req,res)=> {
+res.send('GET/ places/:id/rant/:rantId stub')
 })
 
 module.exports = router
