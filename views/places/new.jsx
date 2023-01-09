@@ -48,7 +48,7 @@ function new_form() {
                     </div>
 
                     <div className = "form-group">
-                     <label htmlFor="cuisine">Cuisines</label>
+                     <label htmlFor="cuisines">Cuisines</label>
                      <input 
                      className="form-control"
                      type="text" 
@@ -56,6 +56,13 @@ function new_form() {
                      id="cuisines" 
                      required
                      />
+                    </div>
+
+                    <div className="form-group">
+                    <label htmlFor="founded">Founded Year</label>
+                    <input className="form-control" 
+                    name="founded"
+                    id = "founded" />
                     </div>
 
                     <input 
