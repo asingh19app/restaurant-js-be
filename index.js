@@ -1,11 +1,15 @@
 //require express package
+//globalizations and configurements 
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
 
+
+
 //CONFIGURATION
 require('dotenv').config()
 const PORT = process.env.PORT
+
 
 
 //MIDDLEWARE
@@ -28,8 +32,13 @@ app.get('*', (req, res) => {
   res.render('error404')
 })
 
-
+//connection
 app.listen(PORT, ()=> {
   console.log('Listening on port', PORT)
 })
+
+
+
+
+
 
