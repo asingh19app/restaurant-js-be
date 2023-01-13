@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 })
 
-//CREATE
+//TAKES INFO FROM NEW PLACE FORM AND CREATES A NEW PLACES AND REDIRECT TO INDEX TO SHOWCASE THAT PLACE
 router.post('/', (req, res) => {
  db.Place.create(req.body)
  .then(() => {
@@ -27,14 +27,21 @@ router.post('/', (req, res) => {
  })
 })
 
-//NEW
+// NEW PLACE FORM VIEWS
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
-//SHOW
+//SHOW THE NEW PLACES INFO
 router.get('/:id', (req, res) => {
-  res.send('GET /places/:id stub')
+  db.Place.findById(req.params.id)
+  .then(place => {
+    res.render('places/show', {place})
+  })
+  .catch(err => {
+    console.log('err', err)
+    res.redirect('error404')
+  })
 })
 
 //UPDATE
