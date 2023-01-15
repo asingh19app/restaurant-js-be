@@ -14,7 +14,7 @@ let placesFormatted = data.places.map((place) => {
                 <a href={`/places/${place.id}`}> {place.name}</a>
             </h2>
             <p >{place.cuisines}</p>
-            <img src={place.image} alt={place.name} height = {500} width = {500} />
+            <img src={place.pic} alt={place.name} height = {500} width = {500} />
             <p>
                 Located in {place.city}, {place.state}
             </p>

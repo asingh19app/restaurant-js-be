@@ -60,7 +60,13 @@ function new_form() {
 
                   <div className="form-group">
                   <label for="founded">Founded Year</label>
-                 <input className="form-control" id="founded" name="founded" />
+                 <input className="form-control" 
+                 type = "number"
+                 id="founded" 
+                 name="founded" 
+                 value = {new Date().getFullYear}
+
+                 />
                 </div>
 
 
