@@ -52,6 +52,53 @@ function Show(data) {
 
     <h2>Comments</h2>
     {comments}
+    <h2>Leave A Rating?</h2>
+    <form action={`/places/${data.place.id}/comment`} method='POST'>
+      <div className='form-group'>
+      <label htmlFor="author">Name:</label>
+      <input 
+      className='form-control'
+      type='text' 
+      name='author'
+      id='author'
+      />
+      </div>
+      <div className='form-group'>
+      <label htmlFor="content">Comment:</label>
+      <input 
+      className='form-control'
+      type='textarea' 
+      name='content'
+      id='content'
+      />
+      </div>
+      <div className='form-group'>
+      <label htmlFor="stars">Stars:</label>
+      <input 
+      className='form-control'
+      type='Number' 
+      name='stars'
+      id='stars'
+      min={0.5}
+      max = {5.0}
+      step = {0.5}
+      />
+      </div>
+      <div className='form-group'>
+      <label htmlFor="rant">Rant? Click Here:</label>
+      <input 
+      className='form-control'
+      type='checkbox' 
+      name='rant'
+      id='rant'
+      />
+      </div>
+      <input 
+       className= "btn btn-primary"
+       type="submit" 
+       value="Add Comment"/>
+      
+    </form>
   </main>
 
         </Default>
