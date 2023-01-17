@@ -6,7 +6,7 @@ function edit (data) {
         <Default>
             <main>
                 <h1>Edit Page</h1>
-                <form action = {`/places/${data.id}?_method=PUT`} method = "POST" >
+                <form method="POST" action={`/places/${data.place.id}?_method=PUT`}>
                 <div className = "form-group">
                     <label htmlFor="name">Place Name</label>
                     <input 
@@ -62,6 +62,11 @@ function edit (data) {
                      required
                      defaultValue = {data.place.cuisines}
                      />
+                    </div>
+
+                    <div className='form-group'>
+                        <label htmlFor='founded'>Founded:</label>
+                        <input className='form-control text-center' id='founded' name='founded' value={data.place.founded}></input>
                     </div>
 
                     <input 
