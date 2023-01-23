@@ -17,3 +17,5 @@ mongoose.connect(MONGO_URI, {
 //making one stop shop for our connection information and acess to all our models 
 module.exports.Place = require('./places')
 module.exports.Comment = require('./comment')
+
+
